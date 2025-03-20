@@ -3,10 +3,77 @@
 @section('content')
 
 <style>
-    
+    body {
+        background-color: #f9f9f9;
+    }
+
+    .container {
+        max-width: 800px;
+    }
+
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+        border: none;
+    }
+
+    .card-header {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        border-bottom: 4px solid #004094;
+    }
+
+    .btn-success {
+        background: linear-gradient(135deg, #28a745, #218838);
+        border: none;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn-success:hover {
+        background: linear-gradient(135deg, #218838, #1e7e34);
+        transform: scale(1.05);
+    }
+
+    .alert-info {
+        background: #e9f5ff;
+        border-left: 6px solid #007bff;
+        color: #0056b3;
+        border-radius: 8px;
+    }
+
+    .alert-info p {
+        font-size: 1.1rem;
+    }
+
+    .note-box {
+        background-color: #fff3cd; /* Orange muda */
+        border: 2px solid #ffeeba; /* Orange terang */
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 20px;
+        color: #856404; /* Warna teks untuk kontras */
+        font-size: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .note-box strong {
+        color: #d39e00; /* Aksen orange yang lebih gelap */
+    }
+
+    .img-fluid {
+        transition: transform 0.3s ease;
+    }
+
+    .img-fluid:hover {
+        transform: scale(1.05);
+    }
+
+    .invalid-feedback {
+        font-size: 0.9rem;
+    }
 </style>
+
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Upload Bukti Pembayaran</h2>
+    <h2 class="text-center mb-4 font-weight-bold" style="color: #333;">Upload Bukti Pembayaran</h2>
 
     <!-- Informasi Rekening -->
     <div class="alert alert-info mb-4 shadow-lg">
@@ -20,18 +87,23 @@
             @elseif(session('pembayaran') == 'BCA')
                 <strong>Silahkan Kirim ke Nomor Rekening BCA:</strong> 5555-6666-7777-8888
             @elseif(session('pembayaran') == 'DANA')
-                <strong>Silahkan Kirim ke Nomor DANA:</strong> 0812-3456-7890
+                <strong>Silahkan Kirim ke Nomor DANA:</strong> 087767278357
             @elseif(session('pembayaran') == 'Gopay')
-                <strong>Silahkan Kirim ke Nomor Gopay :</strong> 0812-3456-7890
+                <strong>Silahkan Kirim ke Nomor Gopay :</strong> 087767278357
             @else
                 Metode pembayaran tidak valid.
             @endif
         </p>
     </div>
 
+    <!-- Note -->
+    <div class="note-box">
+        <p><strong>Catatan:</strong> Pastikan bukti pembayaran Anda jelas dan sesuai dengan metode pembayaran yang dipilih. Ukuran file maksimum adalah 5MB.</p>
+    </div>
+
     <!-- Form Upload Bukti Pembayaran -->
     <div class="card shadow-lg mb-5">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header text-white">
             <h5 class="card-title mb-0">Unggah Bukti Pembayaran</h5>
         </div>
         <div class="card-body">

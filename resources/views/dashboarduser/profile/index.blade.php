@@ -6,6 +6,7 @@
     <div class="text-center mb-4">
         <h1 class="fw-bold text-primary">Profil Saya</h1>
         <p class="text-muted">Kelola informasi pribadi Anda dengan mudah</p>
+        <hr class="mx-auto w-50 border-3 border-primary">
     </div>
 
     <!-- Success Alert -->
@@ -54,9 +55,10 @@
 
                 <!-- Buttons -->
                 <div class="d-flex justify-content-end mt-4">
-                    <a href="/" class="btn btn-secondary btn-sm shadow-sm me-2 d-flex align-items-center justify-content-center" style="width: 10%;">Kembali</a>
-                    <button type="submit" class="btn btn-primary btn-sm shadow-sm">Simpan</button>
+                    <a href="/" class="btn btn-secondary btn-sm shadow-sm me-2 d-flex align-items-center justify-content-center" style="width: 10%; font-size: 15px; padding: 5px;">Kembali</a>
+                    <button type="submit" class="btn btn-primary btn-sm shadow-sm" style="width: 10%; font-size: 15px; padding: 5px;">Simpan</button>
                 </div>
+
 
             </form>
         </div>

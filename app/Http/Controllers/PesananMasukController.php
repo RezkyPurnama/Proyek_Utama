@@ -18,23 +18,31 @@ class PesananMasukController extends Controller
     }
 
     // Fungsi untuk mengubah status pesanan menjadi 'dikirim' (misalnya)
-    public function updateStatus(Request $request, $id)
-    {
-        // Validasi input status
-        $request->validate([
-            'status' => 'required|in:pending,paid,shipped,completed,cancelled',
-        ]);
+    // Fungsi untuk mengubah status pesanan
+public function updateStatus(Request $request, $id)
+{
+    // Validasi input status
+    $request->validate([
+        'status' => 'required|in:sedang_diproses,dalam_perjalanan,selesai,cancel',
+    ]);
 
-        // Cari pesanan berdasarkan ID
-        $pesanan = Order::findOrFail($id);
+    // Cari pesanan berdasarkan ID
+    $pesanan = Order::findOrFail($id);
 
-        // Perbarui status dengan input baru
-        $pesanan->status = $request->input('status');
-        $pesanan->save();
-
-        // Redirect kembali ke halaman index dengan pesan sukses
+    // Cek apakah status saat ini adalah 'selesai'
+    if ($pesanan->status === 'selesai') {
+        // Jika status sudah 'selesai', tidak boleh diubah
         return redirect()->route('pesananmasuk.index');
     }
+
+    // Perbarui status dengan input baru
+    $pesanan->status = $request->input('status');
+    $pesanan->save();
+
+    // Redirect kembali ke halaman index dengan pesan sukses
+    return redirect()->route('pesananmasuk.index');
+}
+
 
 
      // Fungsi untuk mencetak laporan dalam bentuk PDF

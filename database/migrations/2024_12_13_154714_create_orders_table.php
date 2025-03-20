@@ -16,8 +16,8 @@ class CreateOrdersTable extends Migration
             $table->string('telepon'); // Nomor telepon
             $table->integer('jumlah')->default(1); // Jumlah produk dalam pesanan
             $table->decimal('totalharga', 10, 2); // Total harga pesanan
-            $table->enum('status', ['pending', 'paid', 'shipped', 'completed', 'cancelled'])->default('pending'); // Status pesanan
-            $table->enum('pembayaran', ['DANA', 'Gopay', 'BNI', 'Mandiri', 'BRI', 'BCA'])->nullable(); // Metode pembayaran
+            $table->enum('status', ['sedang_diproses','dalam_perjalanan', 'selesai', 'cancel'])->default('sedang_diproses'); // Status pesanan
+            $table->enum('pembayaran', ['DANA', 'Gopay', 'BNI', 'Mandiri', 'BRI', 'BCA','COD'])->nullable(); // Metode pembayaran
             $table->timestamps(); // Kolom created_at dan updated_at
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -118,6 +118,7 @@
                                         <option value="Mandiri">Mandiri</option>
                                         <option value="BRI">BRI</option>
                                         <option value="BCA">BCA</option>
+
                                     </select>
                                     @error('pembayaran')
                                         <div class="invalid-feedback">{{ $message }}</div>

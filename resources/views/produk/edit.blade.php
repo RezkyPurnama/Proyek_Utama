@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Edit Data Produk')
+@section('menuProduk', 'active')
 
 @section('content')
 <div class="container-fluid mt-4 px-4" style="padding-bottom: 40px;">

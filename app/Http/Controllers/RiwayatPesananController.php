@@ -25,8 +25,8 @@ class RiwayatPesananController extends Controller
     {
         $pesanan = Order::findOrFail($id);
 
-        if ($pesanan->status === 'shipped') {
-            $pesanan->status = 'completed'; // Ubah status menjadi "completed"
+        if ($pesanan->status === 'dalam_perjalanan') {
+            $pesanan->status = 'selesai'; // Ubah status menjadi "completed"
             $pesanan->save();
 
             return redirect()->back()->with('success', 'Status pesanan berhasil diubah menjadi "Sudah Diterima".');

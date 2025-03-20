@@ -3,112 +3,160 @@
 @section('content')
 
 <style>
-   .bg-success {
-        background-color: #218838 !important;
-        color: #ffffff !important;
-        font-weight: bold;
+    .custom-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 400px;
     }
 
     .card {
-        border-radius: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        margin-bottom: 20px;
     }
 
     .card-header {
-        border-bottom: 2px solid #e9ecef;
+        background-color: #dead6f; /* Sama seperti warna di 'Tentang Kami' */
+        color: #ffffff;
+        font-size: 1.3rem;
+        font-weight: 600;
         text-align: center;
-        font-weight: bold;
-        font-size: 1.25rem;
+        padding: 0.8rem;
     }
 
-    .card-footer {
-        background-color: #f8f9fa;
-        border-top: 2px solid #e9ecef;
+    .card-body {
+        padding: 1.2rem;
+    }
+
+    .table-detail {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table-detail td {
+        padding: 0.6rem;
+        vertical-align: middle;
+        font-size: 0.9rem;
+    }
+
+    .table-detail td:first-child {
+        font-weight: 600;
+        color: #495057;
+        width: 40%;
+        white-space: nowrap;
     }
 
     .badge {
-        padding: 8px 12px;
+        padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
+        font-weight: 500;
         border-radius: 20px;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #343a40;
+        text-transform: capitalize;
     }
 
     .btn {
-        border-radius: 25px;
-        font-weight: bold;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 0.5rem 1.2rem;
+        transition: background-color 0.3s ease;
     }
 
-    .text-muted {
+    .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+
+    .icon {
+        margin-right: 0.5rem;
         font-size: 1rem;
+        vertical-align: middle;
+        color: #6c757d;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #dead6f; /* Menggunakan warna yang sama dengan header */
+        margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        color: #6c757d;
+    }
+
+    .badge.bg-red {
+        background-color: #28a745; /* Hijau */
+        color: white;
     }
 </style>
 
-<div class="container py-5">
+<div class="container py-3">
     <!-- Header Section -->
     <div class="text-center mb-4">
-        <h1 class="text-primary">Detail Pesanan</h1>
-        <p class="text-muted">Informasi detail tentang pesanan Anda</p>
+        <h1 class="section-title">Detail Pesanan</h1>
+        <p class="section-subtitle">Ringkasan lengkap mengenai informasi pesanan Anda</p>
     </div>
 
-    <!-- Detail Pesanan -->
-    <div class="card shadow-sm border-0">
-        <div class="card-header bg-primary text-white py-3">
-            <h5 class="mb-0">
-                <i class="bi bi-receipt"></i> Detail Pesanan
-            </h5>
+    <!-- Detail Pesanan Card -->
+    <div class="card">
+        <div class="card-header">
+            <i class="bi bi-receipt"></i> Informasi Pesanan
         </div>
-        <div class="card-body px-4 py-4">
-            <div class="row mb-3">
-                <div class="col-sm-4"><strong>ID Transaksi:</strong></div>
-                <div class="col-sm-8">{{ $pesanan->transaction_id }}</div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-sm-4"><strong>Produk:</strong></div>
-                <div class="col-sm-8">{{ $pesanan->produk->nama_produk ?? 'Produk Tidak Ditemukan' }}</div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-sm-4"><strong>Jumlah:</strong></div>
-                <div class="col-sm-8">{{ $pesanan->jumlah }}</div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-sm-4"><strong>Total Harga:</strong></div>
-                <div class="col-sm-8">Rp {{ number_format($pesanan->produk->harga * $pesanan->jumlah, 0, ',', '.') }}</div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-sm-4"><strong>Status:</strong></div>
-                <div class="col-sm-8">
-                    <span class="badge
-                        {{
-                            $pesanan->status == 'pending' ? 'bg-warning text-dark' :
-                            ($pesanan->status == 'paid' ? 'bg-primary text-white' :
-                            ($pesanan->status == 'shipped' ? 'bg-info text-dark' :
-                            ($pesanan->status == 'completed' ? 'bg-success text-white' :
-                            ($pesanan->status == 'cancelled' ? 'bg-danger text-white' : 'bg-secondary text-white'))))
-                        }}">
-                        {{ ucfirst($pesanan->status) }}
-                    </span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-sm-4"><strong>Alamat Pengiriman:</strong></div>
-                <div class="col-sm-8">{{ $pesanan->alamat }}</div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-sm-4"><strong>Telepon:</strong></div>
-                <div class="col-sm-8">{{ $pesanan->telepon }}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4"><strong>Tanggal Pemesanan:</strong></div>
-                <div class="col-sm-8">{{ $pesanan->created_at->format('d M Y H:i') }}</div>
-            </div>
+        <div class="card-body">
+            <table class="table-detail">
+                <tr>
+                    <td><i class="bi bi-upc icon"></i>ID Transaksi</td>
+                    <td>{{ $pesanan->transaction_id }}</td>
+                </tr>
+                <tr>
+                    <td><i class="bi bi-box-seam icon"></i>Produk</td>
+                    <td>{{ $pesanan->produk->nama_produk ?? 'Produk Tidak Ditemukan' }}</td>
+                </tr>
+                <tr>
+                    <td><i class="bi bi-hash icon"></i>Jumlah</td>
+                    <td>{{ $pesanan->jumlah }}</td>
+                </tr>
+                <tr>
+                    <td><i class="bi bi-currency-dollar icon"></i>Total Harga</td>
+                    <td>Rp {{ number_format($pesanan->produk->harga * $pesanan->jumlah, 0, ',', '.') }}</td>
+                </tr>
+                <tr>
+                    <td><i class="bi bi-flag icon"></i>Status</td>
+                    <td>
+                        <span class="badge
+                            {{
+                                $pesanan->status == 'sedang_diproses' ? 'bg-warning text-dark' :
+                                ($pesanan->status == 'dalam_perjalanan' ? 'bg-primary text-white' :
+                                ($pesanan->status == 'selesai' ? 'bg-red text-white' :
+                                ($pesanan->status == 'cancel' ? 'bg-danger text-white' : 'bg-secondary text-white')))
+                            }}">
+                            {{ str_replace('_', ' ', ucfirst($pesanan->status)) }}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="bi bi-house-door icon"></i>Alamat Pengiriman</td>
+                    <td>{{ $pesanan->alamat }}</td>
+                </tr>
+                <tr>
+                    <td><i class="bi bi-telephone icon"></i>Telepon</td>
+                    <td>{{ $pesanan->telepon }}</td>
+                </tr>
+                <tr>
+                    <td><i class="bi bi-calendar-event icon"></i>Tanggal Pemesanan</td>
+                    <td>{{ $pesanan->created_at->format('d M Y H:i') }}</td>
+                </tr>
+            </table>
         </div>
-        <div class="card-footer text-end py-3">
+        <div class="card-footer text-end">
             <a href="{{ route('riwayat.pesanan') }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left"></i> Kembali
             </a>

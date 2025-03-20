@@ -24,7 +24,7 @@ class ProdukController extends Controller
         } else {
             $produk = Produk::latest()->paginate(10); // Mendapatkan data produk tanpa filter
         }
-       
+
 
         return view('produk.index', compact('produk'));
     }

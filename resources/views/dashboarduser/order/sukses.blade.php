@@ -13,12 +13,12 @@
     </div>
 
     <!-- Tombol Aksi -->
-    <div class="d-flex justify-content-center mt-4 gap-3">
-        <a href="{{ url('/') }}" class="btn btn-primary btn-lg px-4 py-2">
-            <i class="fa fa-home"></i> Kembali ke Home
+    <div class="d-flex justify-content-center mt-5 gap-3">
+        <a href="{{ url('/') }}" class="btn btn-primary px-4 py-2 shadow-sm rounded-pill">
+            <i class="fa fa-home me-1"></i> Kembali ke Home
         </a>
-        <a href="{{ url('riwayat-pesanan') }}" class="btn btn-outline-success btn-lg px-4 py-2 ">
-            <i class="fa fa-box"></i> Lihat Pesanan Saya
+        <a href="{{ url('riwayat-pesanan') }}" class="btn btn-outline-success px-4 py-2 shadow-sm rounded-pill">
+            <i class="fa fa-box me-1"></i> Lihat Pesanan Saya
         </a>
     </div>
 </div>

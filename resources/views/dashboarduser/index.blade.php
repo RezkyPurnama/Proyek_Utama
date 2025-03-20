@@ -98,7 +98,7 @@
                             <div class="content-wrapper col-md-7 p-5 mb-5">
                                 <div class="secondary-font text-primary text-uppercase mb-4">Skincare dengan produk berkualitas</div>
                                 <h2 class="banner-title display-1 fw-normal">Promo Skincare Terbaik!</h2>
-                                <p class="text-secondary fs-5 mb-4">Diskon hingga 50% untuk produk pilihan</p>
+                                <p class="text-primary fs-5 mb-4">Diskon hingga 50% untuk produk pilihan</p>
                                 <a href="{{url('shop/skincare')}}" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
                                     Belanja Sekarang
                                     <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
@@ -114,13 +114,14 @@
                         <div class="row banner-content align-items-center">
                             <!-- Image Wrapper -->
                             <div class="img-wrapper col-md-5">
-                                <img src="{{ asset('images/banner 1.png') }}" class="img-fluid rounded-4">
+                                <img src="{{ asset('images/banner 4.png') }}" class="img-fluid rounded-4">
                             </div>
                             <!-- Content Wrapper -->
                             <div class="content-wrapper col-md-7 p-5 mb-5">
-                                <div class="secondary-font text-primary text-uppercase mb-4">Save 10 - 20% off</div>
-                                <h2 class="banner-title display-1 fw-normal">Promo Skincare Terbaik! <span class="text-primary">The best Skincare</span></h2>
-                                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                                <div class="secondary-font text-primary text-uppercase mb-4">Kosmetik dengan produk berkualitas</div>
+                                <h2 class="banner-title display-1 fw-normal">Promo Kosmetik Terbaik!
+                                    <p class="text-primary fs-5 mb-4">Banyak pilihan produk yang menarik</p>
+                                <a href="{{url('shop/kosmetik')}}" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
                                     Belanja Sekarang
                                     <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
                                         <use xlink:href="#arrow-right"></use>
@@ -135,13 +136,14 @@
                         <div class="row banner-content align-items-center">
                             <!-- Image Wrapper -->
                             <div class="img-wrapper col-md-5">
-                                <img src="{{ asset('images/banner 4.png') }}" class="img-fluid rounded-4">
+                                <img src="{{ asset('images/banner 1.png') }}" class="img-fluid rounded-4">
                             </div>
                             <!-- Content Wrapper -->
                             <div class="content-wrapper col-md-7 p-5 mb-5">
-                                <div class="secondary-font text-primary text-uppercase mb-4">Save 10 - 20% off</div>
-                                <h2 class="banner-title display-1 fw-normal">Promo Skincare Terbaik! <span class="text-primary">Skincare terbaik</span></h2>
-                                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                                <div class="secondary-font text-primary text-uppercase mb-4">Menampilkan berbagai macam produk Kosmetik dan Skincare</div>
+                                <h2 class="banner-title display-1 fw-normal">Promo Terbaik Pada Produk Kami</h2>
+                                <p class="text-primary fs-5 mb-4">Banyak pilihan produk Kosmetik dan Skincare yang menarik</p>
+                                <a href="{{url('allproduk')}}" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
                                     Belanja Sekarang
                                     <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
                                         <use xlink:href="#arrow-right"></use>

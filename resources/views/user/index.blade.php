@@ -29,9 +29,7 @@
 
     <!-- Button to add user -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <a href="{{ route('mengelola-user.create') }}" class="btn btn-success">
-            <i class="bi bi-plus-circle"></i> Tambah Data User
-        </a>
+        
 
         <!-- Search Form -->
         <form method="GET" action="{{ route('mengelola-user.index') }}" class="d-flex">
@@ -61,7 +59,7 @@
                             <th style="width: 20%;">Nama</th>
                             <th style="width: 20%;">Email</th>
                             <th style="width: 15%;">Telepon</th>
-                            <th style="width: 15%;">Aksi</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -71,18 +69,7 @@
                                 <td>{{ $dataUser->name }}</td>
                                 <td>{{ $dataUser->email }}</td>
                                 <td>{{ $dataUser->no_telepon }}</td>
-                                <td class="text-center">
-                                    <a href="{{ route('mengelola-user.edit', $dataUser->id) }}" class="btn btn-warning btn-sm">
-                                        <i class="bi bi-pencil-square"></i> Edit
-                                    </a>
-                                    <form action="{{ route('mengelola-user.destroy', $dataUser->id) }}" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="button" class="btn btn-danger btn-sm delete-btn">
-                                            <i class="bi bi-trash-fill"></i> Hapus
-                                        </button>
-                                    </form>
-                                </td>
+
                             </tr>
                         @endforeach
                     </tbody>

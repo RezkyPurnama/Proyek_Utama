@@ -74,7 +74,7 @@ class OrderController extends Controller
                         'telepon' => $request->input('no_telepon'),
                         'jumlah' => $keranjang->jumlah,
                         'totalharga' => $keranjang->produk->harga * $keranjang->jumlah,
-                        'status' => 'pending',
+                        'status' => 'sedang_diproses',
                         'pembayaran' => $request->input('pembayaran'),
                         'transaction_id' => $transaction_id, // Sama untuk semua produk
                     ]);

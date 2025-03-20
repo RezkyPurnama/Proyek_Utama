@@ -19,26 +19,24 @@ class DashboardAdminController extends Controller
         $jumlahProduk = Produk::count();
         $pesananMasuk = Order::count();
         $userDetails = User::all();
-        $totalPendapatan = Order::where('status', 'completed')->sum('totalharga');
+        $totalPendapatan = Order::where('status', 'selesai')->sum('totalharga');
 
-
-
-
-
-        // Data penjualan bulanan
+        // Data penjualan bulanan (hanya status selesai)
         $penjualanBulanan = Order::select(
             DB::raw('DATE_FORMAT(created_at, "%Y-%m") as bulan'),
             DB::raw('SUM(totalharga) as total_penjualan')
         )
+            ->where('status', 'selesai') // Menambahkan filter status selesai
             ->groupBy('bulan')
             ->orderBy('bulan', 'ASC')
             ->get();
 
-        // Data penjualan harian
+        // Data penjualan harian (hanya status selesai)
         $penjualanHarian = Order::select(
             DB::raw('DATE(created_at) as tanggal'),
             DB::raw('SUM(totalharga) as total_penjualan')
         )
+            ->where('status', 'selesai') // Menambahkan filter status selesai
             ->groupBy('tanggal')
             ->orderBy('tanggal', 'ASC')
             ->get();
@@ -61,8 +59,7 @@ class DashboardAdminController extends Controller
             'totalPenjualanBulanan',
             'tanggal',
             'totalPenjualanHarian',
-            'totalPendapatan',
-
+            'totalPendapatan'
         ));
     }
 }

@@ -118,7 +118,7 @@
 
 <section id="all-products" class="my-5 overflow-hidden">
     <div class="container pb-5">
-        <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
+        <div class="section-header d-md-flex justify-content-center align-items-center mb-3">
             <h2 class="display-3 fw-normal">All Produk</h2>
         </div>
 
